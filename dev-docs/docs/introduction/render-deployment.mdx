@@ -1,0 +1,39 @@
+---
+title: Deploy to Render
+---
+
+This guide outlines a simple way to host Excalidraw using [Render](https://render.com/).
+
+## 1. Fork the repository
+
+Create a fork of [excalidraw](https://github.com/excalidraw/excalidraw) on GitHub so you can deploy your own instance.
+
+## 2. Build a Docker image
+
+Render can deploy services from a Dockerfile. The project already contains a `Dockerfile` that builds the app and serves it using Nginx.
+
+```
+# from project root
+docker build -t excalidraw/excalidraw .
+```
+
+Push this image to a registry that Render can access (such as Docker Hub or GitHub Container Registry).
+
+## 3. Create a web service on Render
+
+1. Log in to your Render account.
+2. Create a **new Web Service** and choose **Docker** as the environment.
+3. Provide the Docker image you pushed in the previous step.
+4. Set the **Start Command** to:
+
+```
+nginx -g 'daemon off;'
+```
+
+5. Expose port **80**. Render will automatically serve the application at the generated URL.
+
+## 4. Visit your deployment
+
+Once the service finishes deploying, open the Render URL in your browser to use your self‑hosted Excalidraw instance.
+
+For updates, rebuild your Docker image and trigger a new deploy on Render.

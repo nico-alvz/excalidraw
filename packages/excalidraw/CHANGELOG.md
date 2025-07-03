@@ -849,6 +849,8 @@ define: {
 
 - Support giphy.com embed domain [#7192](https://github.com/excalidraw/excalidraw/pull/7192)
 
+- Support docs.google.com embed domain [#0000](https://github.com/excalidraw/excalidraw/pull/0000)
+
 - Renderer tweaks [#6698](https://github.com/excalidraw/excalidraw/pull/6698)
 
 - Closing of "Save to.." Dialog on Save To Disk [#7168](https://github.com/excalidraw/excalidraw/pull/7168)

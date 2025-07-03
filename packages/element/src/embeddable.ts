@@ -72,6 +72,7 @@ const ALLOWED_DOMAINS = new Set([
   "giphy.com",
   "reddit.com",
   "forms.microsoft.com",
+  "docs.google.com",
 ]);
 
 const ALLOW_SAME_ORIGIN = new Set([
@@ -86,6 +87,7 @@ const ALLOW_SAME_ORIGIN = new Set([
   "stackblitz.com",
   "reddit.com",
   "forms.microsoft.com",
+  "docs.google.com",
 ]);
 
 export const createSrcDoc = (body: string) => {
