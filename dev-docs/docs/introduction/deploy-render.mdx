@@ -1,0 +1,34 @@
+# Deploying Excalidraw to Render
+
+This guide shows how to allow Google Sheets requests and deploy the app using Render's Docker support.
+
+## Allow Google Sheets in CORS
+
+If you need to fetch data from Google Sheets, add `https://docs.google.com` to your CORS configuration. When using the provided `vercel.json`, update the `Access-Control-Allow-Origin` header:
+
+```json
+{
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "https://excalidraw.com, https://docs.google.com"
+        }
+      ]
+    }
+  ]
+}
+```
+
+This change lets the app access Google Spreadsheets from the browser.
+
+## Deploy on Render
+
+1. Push your repository to GitHub.
+2. Create a new **Web Service** on [Render](https://render.com/), selecting **Docker** as the environment.
+3. Render will build using the repo's `Dockerfile` and serve the app on port `80`.
+4. After deployment, Render provides a public URL where your instance is accessible.
+
+The included `Dockerfile` builds the production bundle and serves it with `nginx`, so no extra configuration is needed.
